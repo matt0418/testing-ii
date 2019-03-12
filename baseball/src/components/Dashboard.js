@@ -9,7 +9,6 @@ class Dashboard extends React.Component {
                 strikes: 0,
                 runnersOnBase: 0,
                 runs: 0
-        
         }
     }
 
@@ -75,6 +74,15 @@ class Dashboard extends React.Component {
         })
     }
 
+    reset = () => {
+        this.setState({
+            strikes: 0,
+            balls: 0,
+            runnersOnBase: 0,
+            runs: 0
+        })
+    }
+
 
     render() {
         return(
@@ -85,6 +93,7 @@ class Dashboard extends React.Component {
                     <button onClick={this.foul}>Foul</button>
                     <button onClick={this.hit}>Hit</button>
                     <button onClick={this.hitByPitch}>HBP</button>
+                    <button onClick={this.reset}>Reset</button>
                 </div>
                 
                 <Display strikes={this.state.strikes} balls={this.state.balls} runs={this.state.runs}/>

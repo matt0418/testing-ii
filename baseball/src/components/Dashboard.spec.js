@@ -90,5 +90,29 @@ describe('<Dashboard />', () => {
          const strikeCount = render(<Display />).getByText('Strikes: 0')
          expect(ballCount && strikeCount).toBeInTheDocument()
      })
+     it('calls strike on click', () => {
+        const { getByText } = render(<Dashboard />)
+        const strikeButton = getByText('Strike')
+         fireEvent.click(strikeButton)
+         const strikeCount = render(<Display />).getByText('Strikes: 1')
+         expect(strikeCount).toBeInTheDocument()
+     })
+     it('calls ball on click increasing count to 1', () => {
+        const { getByText } = render(<Dashboard />)
+        const ballButton = getByText('Ball')
+         fireEvent.click(ballButton)
+         const ballCount = render(<Display />).getByText('Balls: 1')
+         expect(ballCount).toBeInTheDocument()
+     })
+     it('reset count and score', () => {
+         const { getByText } = render(<Dashboard />)
+         const resetButton = getByText('Reset')
+         fireEvent.click(resetButton)
+         const ballCount = render(<Display />).getByText('Balls: 0')
+         const strikeCount = render(<Display />).getByText('Strikes: 0')
+         const runs = render(<Display />).getByText('Runs: 0')
+         expect(ballCount && strikeCount && runs).toBeInTheDocument()
+
+     })
     
 })
