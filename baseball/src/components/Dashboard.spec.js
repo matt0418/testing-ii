@@ -112,7 +112,6 @@ describe('<Dashboard />', () => {
          const strikeCount = render(<Display />).getByText('Strikes: 0')
          const runs = render(<Display />).getByText('Runs: 0')
          expect(ballCount && strikeCount && runs).toBeInTheDocument()
-
      })
     
 })
