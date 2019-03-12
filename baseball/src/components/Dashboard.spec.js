@@ -19,7 +19,7 @@ describe('<Dashboard />', () => {
         const balls = getByText(/balls/i)
         expect(balls).toBeInTheDocument()
     })
-    it('calls strike on click', () => {
+    it('calls strike on click', async () => {
        const { getByText } = render(<Dashboard />)
        const strikeButton = getByText('Strike')
         fireEvent.click(strikeButton)
@@ -54,18 +54,18 @@ describe('<Dashboard />', () => {
          const strikeCount = render(<Display />).getByText('Strikes: 0')
          expect(strikeCount).toBeInTheDocument()
      })
+     it('calls ball on click increasing count to 1', () => {
+        const { getByText } = render(<Dashboard />)
+        const ballButton = getByText('Ball')
+         fireEvent.click(ballButton)
+         const ballCount = render(<Display />).getByText('Balls: 1')
+         expect(ballCount).toBeInTheDocument()
+     })
      it('calls ball on click increasing count to 2', () => {
         const { getByText } = render(<Dashboard />)
         const ballButton = getByText('Ball')
          fireEvent.click(ballButton)
          const ballCount = render(<Display />).getByText('Balls: 2')
-         expect(ballCount).toBeInTheDocument()
-     })
-     it('calls ball on click increasing count to 3', () => {
-        const { getByText } = render(<Dashboard />)
-        const ballButton = getByText('Ball')
-         fireEvent.click(ballButton)
-         const ballCount = render(<Display />).getByText('Balls: 3')
          expect(ballCount).toBeInTheDocument()
      })
      it('calls ball on click resetting count to 0', () => {
