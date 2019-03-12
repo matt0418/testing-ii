@@ -97,7 +97,8 @@ class Dashboard extends React.Component {
             strikes: 0,
             balls: 0,
             runnersOnBase: 0,
-            runs: 0
+            runs: 0,
+            outs: 0
         })
     }
 
